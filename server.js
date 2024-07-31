@@ -10,6 +10,7 @@ clodinary.config({
   cloud_name: "drc8sihlj",
   api_key: "675897635184932",
   api_secret: "04ziFqnmJJoNdg0JO2bjd4obQrE",
+  secure: true,
 });
 
 app.use(cors({

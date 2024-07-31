@@ -1,8 +1,13 @@
 const express = require('express');
 const app = express();
+const cors = require("cors");
 const port = process.env.PORT || 3000;
 
 const upload = require('./upload');
+
+app.use(cors({
+  origin: "*"
+}));
 
 app.post('/upload/single', upload.single('file'), (req, res) => {
   // Handle the uploaded file

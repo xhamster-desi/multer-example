@@ -19,6 +19,9 @@ app.use(cors({
 
 app.post('/upload/single', upload.single('file'), (req, res) => {
   // Handle the uploaded file
+  console.log(req.body);
+  console.log(req.file);
+  console.log(req.files);
   clodinary.uploader.upload(req.file.path, (err, result) => {
     if (err) {
       console.error(err);
@@ -29,6 +32,7 @@ app.post('/upload/single', upload.single('file'), (req, res) => {
       secure_url: result.secure_url
     });
   });
+  
 });
 
 app.post("/upload/multiple", upload.array("file", 10), (req, res) => {

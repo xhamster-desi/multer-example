@@ -32,7 +32,6 @@ app.post('/upload/single', upload.single('file'), (req, res) => {
       secure_url: result.secure_url
     });
   });
-  
 });
 
 app.post("/upload/multiple", upload.array("file", 10), (req, res) => {
@@ -41,17 +40,7 @@ app.post("/upload/multiple", upload.array("file", 10), (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  clodinary.uploader.upload("./uploads/image.jpg", (err, result) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send('Error uploading to Cloudinary');
-    }
-    console.log(result);
-    res.json({
-      message: 'File uploaded successfully!',
-      secure_url: result.secure_url
-    });
-  });
+  res.send("Welcom");
 });
 
 app.listen(port, () => {
